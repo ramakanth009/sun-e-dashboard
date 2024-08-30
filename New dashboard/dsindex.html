@@ -1,0 +1,3298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sun E-Learning Academician-dashboard</title>
+  <link href="style.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        rel="stylesheet" />
+  <link href="./dsindex.css" rel="stylesheet" />
+  <!-- Favicon for general browsers -->
+  <link href="./favicon/favicon.ico" rel="icon" type="image/x-icon" />
+  <!-- PNG icons for Android Chrome -->
+  <link href="./favicon/android-chrome-192x192.png" rel="icon" sizes="192x192" />
+  <link href="./favicon/android-chrome-512x512.png" rel="icon" sizes="512x512" />
+  <!-- PNG icon for Apple Touch -->
+  <link href="./favicon/apple-touch-icon.png"
+        rel="apple-touch-icon"
+        sizes="180x180" />
+  <!-- PNG icons for favicon sizes -->
+  <link href="./favicon/favicon-16x16.png"
+        rel="icon"
+        sizes="16x16"
+        type="image/png" />
+  <link href="./favicon/favicon-32x32.png"
+        rel="icon"
+        sizes="32x32"
+        type="image/png" />
+  <!-- Web app manifest for progressive web apps -->
+  <link href="./favicon/site.webmanifest" rel="manifest" />
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li>
+          <a class="logo" data-content="dashboard" href="#" id="board">
+            <img alt="logo-image" class="logo-img" src="./assets/g.webp" />
+            <span class="nav-item dash" id="board">DashBoard</span>
+          </a>
+        </li>
+        <li>
+          <a data-content="skills" href="#">
+            <i class="fas fa-home"></i>
+            <span class="nav-item">Home</span>
+          </a>
+        </li>
+        <li>
+          <a data-content="profile" href="#">
+            <i class="fas fa-user"></i>
+            <span class="nav-item">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a data-content="analytics" href="#">
+            <i class="fas fa-chart-bar"></i>
+            <span class="nav-item">Curriculum</span>
+          </a>
+        </li>
+        <!-- <li class="video1">
+          <a class="video2" data-content="coursevideo" href="#">
+            <i class="fas fa-video"></i>
+            <span class="nav-item2">Videos</span>
+          </a>
+        </li>-->
+        <li>
+          <a data-content="tasks" href="#">
+            <i class="fas fa-tasks"></i>
+            <span class="nav-item">Tasks</span>
+          </a>
+        </li>
+        <!-- <li>
+          <a data-content="settings" href="#">
+            <i class="fas fa-cog"></i>
+            <span class="nav-item">Settings</span>
+          </a>
+        </li> -->
+        <li>
+          <a data-content="help" href="#">
+            <i class="fas fa-question-circle"></i>
+            <span class="nav-item">Help</span>
+          </a>
+        </li>
+        <div class="bottom">
+          <li>
+            <a class="logout" onclick="logout()">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a>
+          </li>
+          <li>
+            <button class="theme-toggle" id="theme-toggle">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
+        </div>
+      </ul>
+      <style>
+          .bottom {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+            padding: 10px;
+            position: absolute;
+            bottom: 10px;
+          }
+          .bottom li {
+            margin-left: 10px;
+            list-style: none;
+          }
+          .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: rgb(85, 83, 83);
+          }
+          .theme-toggle i {
+            display: none;
+          }
+          .theme-toggle .fa-moon {
+            display: block;
+          }
+          .theme-toggle.active .fa-moon {
+            display: none;
+          }
+          .theme-toggle.active .fa-sun {
+            display: block;
+          }
+        </style>
+    </nav>
+    <section class="main">
+      <!-- <div class="content-section hidden" id="dashboard">
+        <h1 class="dashboardhead">Sprint Path</h1>
+        <div class="sprintdetail">
+          <div class="boxes">
+            <div class="box1">
+              <div class="dbstatus">completed</div>
+              <div class="dbhed">
+                <p class="dbhead2">Python</p>
+                <div class="logo">
+                </div>
+              </div>
+              <div class="dbnum">1</div>
+            </div>
+            <div class="box2">
+              <div class="dbstatus">completed</div>
+              <div class="dbhead2">Sql</div>
+              <div class="dbnum">2</div>
+            </div>
+            <div class="box3">
+              <div class="dbstatus">completed</div>
+              <div class="dbhead2">Stats & Math In DS</div>
+              <div class="dbnum">3</div>
+            </div>
+            <div class="box4">
+              <div class="dbstatus1">In Progress</div>
+              <div class="dbhead2">EDA</div>
+              <div class="dbnum">4</div>
+            </div>
+            <div class="box5">
+              <div class="dbstatus1">In Progress</div>
+              <div class="dbhead2">Machine Learning</div>
+              <div class="dbnum">5</div>
+            </div>
+            <div class="box6">
+              <div class="dbstatus1">In Progress</div>
+              <div class="dbhead2">Deep Learning</div>
+              <div class="dbnum">6</div>
+            </div>
+            <div class="box7">
+              <div class="dbstatus1">In Progress</div>
+              <div class="dbhead2">NLP</div>
+              <div class="dbnum">7</div>
+            </div>
+            <div class="box8">
+              <div class="dbstatus1">In Progress</div>
+              <div class="dbhead2">Git Version Control</div>
+              <div class="dbnum">8</div>
+            </div>
+            <div class="box9">
+              <div class="dbstatus1">In Progress</div>
+              <div class="dbhead2">Tableau</div>
+              <div class="dbnum">9</div>
+            </div>
+            <div class="box10">
+              <div class="dbstatus1">In Progress</div>
+              <div class="dbhead2">PowerBI</div>
+              <div class="dbnum dbnum1">10</div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <div class="content-section active" id="skills">
+        <div class="main-top">
+          <h1>Skills</h1>
+          <!-- <i class="fas fa-user"></i> -->
+        </div>
+        <div class="main-skills">
+          <div class="card">
+            <svg class="gear"
+                 viewBox="0 0 512 512"
+                 xmlns="http://www.w3.org/2000/svg">
+              <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" />
+              
+            </svg>
+
+            <h3>Data visualisation</h3>
+            <p>Join Over 2 million Students.</p>
+            <button>Get Started</button>
+          </div>
+          <div class="card">
+            <svg class="gear"
+                 viewBox="0 0 640 512"
+                 xmlns="http://www.w3.org/2000/svg">
+              <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path d="M64 96c0-35.3 28.7-64 64-64l384 0c35.3 0 64 28.7 64 64l0 256-64 0 0-256L128 96l0 256-64 0L64 96zM0 403.2C0 392.6 8.6 384 19.2 384l601.6 0c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8L76.8 480C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z" />
+              
+            </svg>
+            <h3>Machine Learning</h3>
+            <p>Join Over 2 million Students.</p>
+            <button>Get Started</button>
+          </div>
+          <div class="card">
+            <svg class="gear"
+                 viewBox="0 0 576 512"
+                 xmlns="http://www.w3.org/2000/svg">
+              <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path d="M290.8 48.6l78.4 29.7L288 109.5 206.8 78.3l78.4-29.7c1.8-.7 3.8-.7 5.7 0zM136 92.5l0 112.2c-1.3 .4-2.6 .8-3.9 1.3l-96 36.4C14.4 250.6 0 271.5 0 294.7L0 413.9c0 22.2 13.1 42.3 33.5 51.3l96 42.2c14.4 6.3 30.7 6.3 45.1 0L288 457.5l113.5 49.9c14.4 6.3 30.7 6.3 45.1 0l96-42.2c20.3-8.9 33.5-29.1 33.5-51.3l0-119.1c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-1.3-.5-2.6-.9-3.9-1.3l0-112.2c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-12.8-4.8-26.9-4.8-39.7 0l-96 36.4C150.4 48.4 136 69.3 136 92.5zM392 210.6l-82.4 31.2 0-89.2L392 121l0 89.6zM154.8 250.9l78.4 29.7L152 311.7 70.8 280.6l78.4-29.7c1.8-.7 3.8-.7 5.7 0zm18.8 204.4l0-100.5L256 323.2l0 95.9-82.4 36.2zM421.2 250.9c1.8-.7 3.8-.7 5.7 0l78.4 29.7L424 311.7l-81.2-31.1 78.4-29.7zM523.2 421.2l-77.6 34.1 0-100.5L528 323.2l0 90.7c0 3.2-1.9 6-4.8 7.3z" />
+              
+            </svg>
+            <h3>Deep Learning</h3>
+            <p>Join Over 3 million Students.</p>
+            <button>Get Started</button>
+          </div>
+          <div class="card">
+            <svg class="gear"
+                 viewBox="0 0 576 512"
+                 xmlns="http://www.w3.org/2000/svg">
+              <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path d="M290.8 48.6l78.4 29.7L288 109.5 206.8 78.3l78.4-29.7c1.8-.7 3.8-.7 5.7 0zM136 92.5l0 112.2c-1.3 .4-2.6 .8-3.9 1.3l-96 36.4C14.4 250.6 0 271.5 0 294.7L0 413.9c0 22.2 13.1 42.3 33.5 51.3l96 42.2c14.4 6.3 30.7 6.3 45.1 0L288 457.5l113.5 49.9c14.4 6.3 30.7 6.3 45.1 0l96-42.2c20.3-8.9 33.5-29.1 33.5-51.3l0-119.1c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-1.3-.5-2.6-.9-3.9-1.3l0-112.2c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-12.8-4.8-26.9-4.8-39.7 0l-96 36.4C150.4 48.4 136 69.3 136 92.5zM392 210.6l-82.4 31.2 0-89.2L392 121l0 89.6zM154.8 250.9l78.4 29.7L152 311.7 70.8 280.6l78.4-29.7c1.8-.7 3.8-.7 5.7 0zm18.8 204.4l0-100.5L256 323.2l0 95.9-82.4 36.2zM421.2 250.9c1.8-.7 3.8-.7 5.7 0l78.4 29.7L424 311.7l-81.2-31.1 78.4-29.7zM523.2 421.2l-77.6 34.1 0-100.5L528 323.2l0 90.7c0 3.2-1.9 6-4.8 7.3z" />
+              
+            </svg>
+            <h3>Generative AI</h3>
+            <p>Join Over 2.5 million Students.</p>
+            <button>Get Started</button>
+          </div>
+        </div>
+
+        <section class="main-course">
+          <h1>My courses</h1>
+          <div class="course-box">
+            <ul>
+              <li class="active">In progress</li>
+            </ul>
+            <div class="course">
+              <div class="box">
+                <h3>python</h3>
+                <p id="progress1">0% Progress</p>
+                <button data-target="coursevideo" id="continueBtn">
+                    Continue
+                </button>
+                <img alt="python" class="pythonicon" src="./icons8-python-96.png" />
+            </div>
+            
+              <div class="box">
+                <h3>SQL</h3>
+                <p id="progress3">0% - progress</p>
+
+                <button data-target="coursevideo" id="continueBtn">
+                  Continue
+                </button>
+                <!-- <i class="fab fa-css3-alt css"></i> -->
+                <img alt="sql" class="sqlicon" src="./icons8-sql-60.png" />
+              </div>
+              <div class="box">
+                <h3>Stats & Math In DS</h3>
+                <p id="progress3">0% - progress</p>
+                <button data-target="coursevideo" id="continueBtn">
+                  Continue
+                </button>
+                <!-- <i class="fab fa-js-square js"></i>0-->
+                <img alt="power bi" class="powerbiicon" src="./stats (1).png" />
+              </div>
+              <div class="box">
+                <h3>EDA</h3>
+                <p id="progress3">0% - progress</p>
+                <button data-target="coursevideo" id="continueBtn">
+                  Continue
+                </button>
+                <!-- <i class="fab fa-js-square js"></i>0-->
+                <img alt="power bi"
+                     class="powerbiicon"
+                     src="./exploratory-analysis.png" />
+              </div>
+              <div class="box">
+                <h3>Machine Learning</h3>
+                <p id="progress3">0% - progress</p>
+                <button data-target="coursevideo" id="continueBtn">
+                  Continue
+                </button>
+                <!-- <i class="fab fa-js-square js"></i>0-->
+                <img alt="power bi"
+                     class="powerbiicon"
+                     src="./learning (1).png" />
+              </div>
+              <div class="box">
+                <h3>Deep Learning</h3>
+                <p id="progress3">0% - progress</p>
+                <button data-target="coursevideo" id="continueBtn">
+                  Continue
+                </button>
+                <!-- <i class="fab fa-js-square js"></i>0-->
+                <img alt="power bi"
+                     class="powerbiicon"
+                     src="./deeplearning.png" />
+              </div>
+              <div class="box">
+                <h3>NLP</h3>
+                <p id="progress3">0% - progress</p>
+                <button data-target="coursevideo" id="continueBtn">
+                  Continue
+                </button>
+                <!-- <i class="fab fa-js-square js"></i>0-->
+                <img alt="power bi" class="powerbiicon" src="./nlp (1).png" />
+              </div>
+              <div class="box">
+                <h3>Git Version Control</h3>
+                <p id="progress3">0% - progress</p>
+                <button data-target="coursevideo" id="continueBtn">
+                  Continue
+                </button>
+                <!-- <i class="fab fa-js-square js"></i>0-->
+                <img alt="power bi"
+                     class="powerbiicon"
+                     src="./icons8-git-96.png" />
+              </div>
+              <div class="box">
+                <h3>Tableau</h3>
+                <p id="progress3">0% - progress</p>
+                <button data-target="coursevideo" id="continueBtn">
+                  Continue
+                </button>
+                <!-- <i class="fab fa-js-square js"></i>0-->
+                <img alt="tableau"
+                     class="powerbiicon"
+                     src="./icons8-tableau-software-96.png" />
+              </div>
+              <div class="box">
+                <h3>Power BI</h3>
+                <p id="progress3">0% - progress</p>
+                <button data-target="coursevideo" id="continueBtn">
+                  Continue
+                </button>
+                <!-- <i class="fab fa-js-square js"></i>0-->
+                <img alt="power bi"
+                     class="powerbiicon"
+                     src="./icons8-power-bi-96.png" />
+              </div>
+              <div class="box bdx">
+                <style>
+                .bdx{
+                  border: none;
+                  background-color: #1e1e1e;
+                  box-shadow: none;
+                  background: none;
+
+
+                }
+               </style>
+              </div>
+              <div class="box bdx"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="content-section hidden" id="profile">
+        <div>
+          <h2 class="profile-head">Profile</h2>
+        </div>
+        <div class="profile-main">
+          <div class="profile-div">
+            <div class="profilepic">
+              <img alt class="ppic" src="./assets/profilepic.png" />
+            </div>
+            <div class="profilediv1">
+              <div class="line1">
+                <p class="ques1">Full name</p>
+                <p class="ans1">Ramakanth Kannuri</p>
+              </div>
+              <div class="line2">
+                <p class="ques1">Gender</p>
+                <p class="ans1">Male</p>
+              </div>
+              <div class="line3">
+                <p class="ques1">Registered Email ID</p>
+                <p class="ans1">ramakanthkannuri@gmail.com</p>
+              </div>
+              <div class="line4">
+                <p class="ques1">Primary Contact Number</p>
+                <p class="ans1">+91 0000000000</p>
+              </div>
+              <div class="line5">
+                <p class="ques1">Whatsapp number</p>
+                <p class="ans1">+91 0000000000</p>
+              </div>
+              <div class="line6">
+                <p class="ques1">Father's Name</p>
+                <p class="ans1">-</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="profilediv2">
+            <h2 class="shorthead">
+              Education Details
+              <span class="arrow">&#9654;</span>
+            </h2>
+            <div class="details education-details">
+              <div class="line14">
+                <p class="ques1">Highest Education Qualification</p>
+                <p class="ans1">Under Graduation</p>
+              </div>
+              <div class="line15">
+                <p class="ques1">Degree</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line16">
+                <p class="ques1">Year of Graduation</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line17">
+                <p class="ques1">Branch</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line18">
+                <p class="ques1">College/University Name</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line19">
+                <p class="ques1">CGPA or Percentage</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line20">
+                <p class="ques1">Additional Certificates</p>
+                <p class="ans1">-</p>
+              </div>
+            </div>
+          </div>
+          <div class="profilediv2">
+            <h2 class="shorthead">
+              Current Professional Status
+              <span class="arrow">&#9654;</span>
+            </h2>
+            <div class="details professional-details">
+              <div class="line21">
+                <p class="ques1">Current Profession</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line22">
+                <p class="ques1">Last Company</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line23">
+                <p class="ques1">Date of Joining</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line24">
+                <p class="ques1">Last Company Tenure</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line25">
+                <p class="ques1">Last Working Location</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line26">
+                <p class="ques1">Last Designation</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line27">
+                <p class="ques1">Last CTC</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line28">
+                <p class="ques1">Notice Period</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line29">
+                <p class="ques1">Total Experience</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line30">
+                <p class="ques1">Total Development Experience</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line31">
+                <p class="ques1">Preferred location for job</p>
+                <p class="ans1">-</p>
+              </div>
+            </div>
+          </div>
+          <div class="profilediv2">
+            <h2 class="shorthead">
+              More Profile Information
+              <span class="arrow">&#9654;</span>
+            </h2>
+            <div class="details profile-details">
+              <div class="line32">
+                <p class="ques1">Git Hub Email ID</p>
+                <p class="ans1">ramakanthram014@gmail.com</p>
+              </div>
+              <div class="line33">
+                <p class="ques1">Github Profile</p>
+                <p class="ans1">
+                  <a href="https://github.com/ramakanth009" target="_blank">
+                    https://github.com/ramakanth009
+                  </a>
+                </p>
+              </div>
+              <div class="line34">
+                <p class="ques1">LinkedIn Profile URL</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line35">
+                <p class="ques1">Resume</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line36">
+                <p class="ques1">Masked Resume</p>
+                <p class="ans1">-</p>
+              </div>
+              <div class="line37">
+                <p class="ques1">Additional tech stack that you know</p>
+                <p class="ans1">-</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-section hidden" id="analytics">
+        <h2>Curriculum</h2>
+        <div class="curriculammainbox">
+          <div class="modules">
+            <div class="module1">
+              <div class="mod1">
+                <!-- Main Module Details -->
+                <div class="mod1detail1">
+                  <h4 class="mod1head1">Module 1</h4>
+                  <p class="mod1tick">&#x2714;</p>
+                </div>
+                <div class="mod1sub">
+                  <h2 class="mod1head2">
+                    Core and Advanced Python Programming
+                  </h2>
+                  <div class="vido" data-target="coursevideo" id="continueBtn">
+                    watch videos
+                  </div>
+                </div>
+                <br />
+                <div class="mod1detail2">
+                  <p class="mod1detail1sec1">Submission : none</p>
+                  <p class="mod1detail1sec2">All content completed 🎉</p>
+                </div>
+              </div>
+              <div class="mod2">
+                <p>&#9660;</p>
+              </div>
+            </div>
+            <div class="mod3">
+              <!--Nested Accordion -->
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Basics of Python</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Introduction to Python
+                  <br />- Overview of Python's history, importance, and features.
+                  <br />- Comparison with other programming languages.
+                  <br />- Installation and setup
+                  <br />- Explanation of Python keywords and variables.
+                  <br />- Operators and Data types
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Comprehensive Data Structures</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Lists: Operations and methods.
+                  <br />- Tuples: Characteristics and methods.
+                  <br />- Sets: Operations and applications.
+                  <br />- Dictionaries: Key-value pairs and manipulation
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Control Flow</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - if,else, elif statements
+                  <br />- Loops (for and while)
+                  <br />- Functions and Lambda expressions
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp; Defining and using functions.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp; Lambda functions.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp; Map, Reduce, & Filter.
+                  <br />- Built-in functions
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Exception handling and Module management</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Exception Handling
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Error Types: Syntax, runtime, and logical errors.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Handling Exceptions: try, except, else, finally.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Raising Exceptions: Custom exceptions.
+                  <br />- Modules and Packages
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Modules: Importing and using modules.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Packages: Creating and managing packages.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>File handling and Iteration techniques</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - File Handling
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Reading/Writing Files: Open, read, write, close.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Context Management: Using with statement.
+                  <br />- Iterators and Generators
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Iterators: Protocols, creating custom iterators.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Generators: Yield statement, generator expressions.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>OOps Concepts</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Classes and objects.
+                  <br />- Attributes and methods.
+                  <br />- Inheritance.
+                  <br />- Polymorphism.
+                  <br />- Encapsulation.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>NumPy and pandas</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - NumPy
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Introduction to NumPy: installation, arrays, and basic operations.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Advanced operations: indexing, slicing, and reshaping arrays.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Universal functions (ufuncs), broadcasting, and aggregation.
+                  <br />- Pandas
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Introduction to Pandas: Series and DataFrame.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Data manipulation: handling missing data, data alignment, and merging.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Data analysis: grouping, aggregation, and applying functions.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Matplotlib for visualisations</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Introduction to Matplotlib: basic plots (line plots, scatter plots, histograms).
+                  <br />- Customizing plots: labels, titles, legends, and styles.
+                  <br />- Advanced plotting techniques: subplots, plotting categorical data, and bar plots.
+                  <br />- Integrating NumPy, Pandas, and Matplotlib
+                  <br />- Visualizing data with Pandas and Matplotlib: plotting from DataFrames.
+                  <br />- Advanced NumPy techniques: advanced indexing, selection, and handling time series data with Pandas.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Intro to Frameworks</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Django
+                  <br />- Flask
+                  <br />- Streamlit
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modules">
+            <div class="module1">
+              <div class="mod1">
+                <!-- Main Module Details -->
+                <div class="mod1detail1">
+                  <h4 class="mod1head1">Module 2</h4>
+                  <p class="mod1tick">&#x2714;</p>
+                </div>
+                <div class="mod1sub">
+                  <h2 class="mod1head2">SQL</h2>
+                  <div class="vido" data-target="coursevideo" id="continueBtn">
+                    watch videos
+                  </div>
+                </div>
+                <br />
+                <div class="mod1detail2">
+                  <p class="mod1detail1sec1">Submission : none</p>
+                  <p class="mod1detail1sec2">All content completed 🎉</p>
+                </div>
+              </div>
+              <div class="mod2">
+                <p>&#9660;</p>
+              </div>
+            </div>
+            <div class="mod3">
+              <!--Nested Accordion -->
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Introduction to Databases and SQL Basics</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - What is SQL?
+                  <br />- SQL Command Categories (DQL, DDL, DML, DCL)
+                  <br />- Datatypes in SQL
+                  <br />- SQL Basics
+                  <br />- Basic SQL Queries (SELECT, INSERT, UPDATE, DELETE)
+                  <br />- Table Basics: Creating, Inserting, Updating Data
+                  <br />- Data Definition Language (DDL)
+                  <br />- Filtering and Sorting Data
+                  <br />- Aggregation Functions (COUNT, SUM, AVG, etc.)
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Advanced SQL Queries, Indexes, and Views</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Advanced SQL Queries
+                  <br />- Joins (INNER JOIN, LEFT JOIN, RIGHT JOIN, etc.)
+                  <br />- Nested Queries & Views
+                  <br />- Conditional Expressions (CASE statements)
+                  <br />- Indexes
+                  <br />- Creating and Managing Indexes
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Transactions, Concurrency, and Stored Procedures</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Transactions
+                  <br />- ACID Properties of Transactions
+                  <br />- Transaction Isolation Levels
+                  <br />- Concurrency
+                  <br />- Handling Concurrency Issues (Locking, Deadlocks)
+                  <br />- Stored Procedures and Functions
+                  <br />- Creating Stored Procedures
+                  <br />- Triggers
+                  <br />- Window Functions
+                  <br />- User-Defined Functions (UDFs)
+                  <br />- Benefits of Using Stored Procedures and Functions
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Integrating SQL with Applications and Data Analysis</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Integrating SQL with Applications
+                  <br />- Data Importing: Import and Export Data
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp; Connecting Python to SQL Databases (using libraries like SQLAlchemy)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp; Executing SQL Queries from Python
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Data Exploration and Analysis</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Data Exploration and Analysis
+                  <br />- Exploratory Data Analysis (EDA) Techniques
+                  <br />- Summarizing and Visualizing Data from Databases
+                  <br />- Interacting with Databases
+                  <br />- Best Practices for Database Interaction
+                  <br />- Security Considerations and Data Privacy
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modules">
+            <div class="module1">
+              <div class="mod1">
+                <!-- Main Module Details -->
+                <div class="mod1detail1">
+                  <h4 class="mod1head1">Module 3</h4>
+                  <p class="mod1tick">&#x2714;</p>
+                </div>
+                <div class="mod1sub">
+                  <h2 class="mod1head2">
+                    Foundations of Mathematics in Data Science and Exploratory Data Analysis (EDA)
+                  </h2>
+                  <div class="vido" data-target="coursevideo" id="continueBtn">
+                    watch videos
+                  </div>
+                </div>
+                <br />
+                <div class="mod1detail2">
+                  <p class="mod1detail1sec1">Submission : none</p>
+                  <p class="mod1detail1sec2">All content completed 🎉</p>
+                </div>
+              </div>
+              <div class="mod2">
+                <p>&#9660;</p>
+              </div>
+            </div>
+            <div class="mod3">
+              <!--Nested Accordion -->
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Foundations of Mathematics in Data Science</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Introduction to Mathematics in Data Science
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Overview of mathematical concepts used in data science.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Importance of mathematics in data analysis and modeling.
+                  <br />- Descriptive Statistics
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Mean, median, mode.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Variance, standard deviation.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Skewness, kurtosis.
+                  <br />- Probability Basics
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Fundamentals of probability.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Probability distributions (normal, binomial, Poisson).
+                  <br />- Linear Algebra Basics
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Scalars, vectors, matrices.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Matrix operations (addition, multiplication).
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Matrix transpose, inverse.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Advanced Mathematics for Data Science</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Calculus Basics
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Differentiation and integration basics.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Applications in optimization (gradient descent).
+                  <br />- Optimization Techniques
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Introduction to optimization problems.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Gradient descent and its variants.
+                  <br />- Statistics and Hypothesis Testing Basics
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Introduction to Statistics.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Hypothesis testing basics.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Confidence intervals.
+                  <br />- Linear Algebra Applications
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Solving systems of linear equations.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Eigenvalues and eigenvectors.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Principal Component Analysis (PCA) introduction.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Introduction to EDA and Data Preparation</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  -Overview of EDA
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Definition and importance of EDA.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Objectives and steps in EDA.
+                  <br />- Data Collection and Preparation
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Data sources and importing data.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Initial inspection and handling of data.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Data Cleaning and Transformation</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Handling Missing Values and Duplicates
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Techniques for missing values.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Identifying and removing duplicates.
+                  <br />- Data Transformation
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Normalization and standardization.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Encoding categorical variables.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Initial Data Exploration and Summary Statistics</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Summary Statistics
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Measures of central tendency (mean, median, mode).
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Measures of dispersion (variance, standard deviation).
+                  <br />- Data Distributions
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Histograms, box plots, scatter plots.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Data Visualization</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Introduction to Data Visualization
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Importance of data visualization.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Common libraries (Matplotlib, Seaborn).
+                  <br />- Basic and Advanced Plots
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Histograms, bar charts, scatter plots, line graphs.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Box plots, violin plots.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Heatmaps.
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Feature Engineering and Outlier Detection</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Feature Engineering
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Creating New Features
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Selecting Important Features
+                  <br />- Basic and Advanced Plots
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Identifying Outliers
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Handling Outliers
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Anomaly Detection Techniques (Isolation Forest, DBSCAN)
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Hypothesis Testing and Presenting Findings</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Hypothesis Testing
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Concepts (Null Hypothesis, Alternative Hypothesis, P-values, Significance Levels)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Conducting Tests (T-tests, Chi-square Tests)
+                  <br />- Summarizing and Presenting Findings
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Highlighting Insights
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Creating Reports
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Data storytelling using tools (Jupyter Notebooks, Data Studio).
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modules">
+            <div class="module1">
+              <div class="mod1">
+                <!-- Main Module Details -->
+                <div class="mod1detail1">
+                  <h4 class="mod1head1">Module 4</h4>
+                  <p class="mod1tick">&#x2714;</p>
+                </div>
+                <div class="mod1sub">
+                  <h2 class="mod1head2">
+                    Comprehensive Machine Learning Series
+                  </h2>
+                  <div class="vido" data-target="coursevideo" id="continueBtn">
+                    watch videos
+                  </div>
+                </div>
+                <br />
+                <div class="mod1detail2">
+                  <p class="mod1detail1sec1">Submission : none</p>
+                  <p class="mod1detail1sec2">All content completed 🎉</p>
+                </div>
+              </div>
+              <div class="mod2">
+                <p>&#9660;</p>
+              </div>
+            </div>
+            <div class="mod3">
+              <!--Nested Accordion -->
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Introduction to Machine Learning and Data Preprocessing</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Introduction to Machine Learning
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Definition and Importance
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Types of Machine Learning: Supervised, Unsupervised, Reinforcement
+                  <br />- Data Preprocessing
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Data Cleaning: Handling Missing Values and Outliers
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Data Transformation: Normalization and Standardization
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Feature Engineering Basics
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Classification Algorithms</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Supervised Learning Basics
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Introduction to Classification Problems
+                  <br />- Classification Algorithms
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Decision Trees and Random Forests
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;K-Nearest Neighbors (KNN)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Logistic Regression
+                  <br />- Evaluation Metrics for Classification
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Accuracy, Precision, Recall, F1-score
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Regression Algorithms</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Introduction to Regression
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Differences between Classification and Regression
+                  <br />- Regression Algorithms
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Linear Regression and Polynomial Regression
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Support Vector Regression (SVR)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Ridge and Lasso Regression
+                  <br />- Evaluation Metrics for Regression
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE)
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Advanced Classification and Regression Algorithms</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Advanced Classification
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Gradient Boosting Machines (e.g., XGBoost, LightGBM)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Neural Networks for Classification
+                  <br />- Advanced Regression
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Support Vector Regression with Kernel Tricks
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Ensemble Methods for Regression
+                  <br />- Transfer Learning Basics
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Unsupervised Algorithms and Dimensionality Reduction</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Unsupervised Learning Basics
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Clustering and Dimensionality Reduction
+                  <br />- Clustering Techniques
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;K-Means Clustering
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Hierarchical Clustering
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+                  <br />- Dimensionality Reduction
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Principal Component Analysis (PCA)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;T-Distributed Stochastic Neighbor Embedding (T-SNE)
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>
+                    Association Rule Learning and Advanced Unsupervised Learning
+                  </b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Association Rule Learning
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Apriori Algorithm
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Eclat Algorithm
+                  <br />- Advanced Unsupervised Learning
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Gaussian Mixture Models (GMM)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Generative Models
+                  <br />- Self-Supervised Learning Basics
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>
+                    Model Evaluation Techniques and Reinforcement Learning Basics
+                  </b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Model Evaluation Techniques
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Cross-Validation and Bootstrapping
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Performance Metrics for Classification and Regression
+                  <br />- Introduction to Reinforcement Learning
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Basics of Reinforcement Learning
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Markov Decision Processes (MDPs)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Q-Learning
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Advanced Topics in Machine Learning</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Ensemble Methods
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Bagging and Boosting
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Stacking Models
+                  <br />- Transfer Learning and Hyperparameter Optimization
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Grid Search and Random Search
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Bayesian Optimization
+                  <br />- Future Trends and Applications
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Interpretability in Machine Learning
+                  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;Ethical Considerations in AI
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modules">
+            <div class="module1">
+              <div class="mod1">
+                <!-- Main Module Details -->
+                <div class="mod1detail1">
+                  <h4 class="mod1head1">Module 5</h4>
+                  <p class="mod1tick">&#x2714;</p>
+                </div>
+                <div class="mod1sub">
+                  <h2 class="mod1head2">Comprehensive Deep Learning and NLP</h2>
+                  <div class="vido" data-target="coursevideo" id="continueBtn">
+                    watch videos
+                  </div>
+                </div>
+                <br />
+                <div class="mod1detail2">
+                  <p class="mod1detail1sec1">Submission : none</p>
+                  <p class="mod1detail1sec2">All content completed 🎉</p>
+                </div>
+              </div>
+              <div class="mod2">
+                <p>&#9660;</p>
+              </div>
+            </div>
+            <div class="mod3">
+              <!--Nested Accordion -->
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Introduction to Deep Learning and Neural Networks</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Basics of Artificial Neural Networks (ANNs)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Structure and Components
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Training Neural Networks: Backpropagation, Gradient Descent
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Activation Functions
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Loss Functions and Optimization Algorithms
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>
+                    Convolutional Neural Networks (CNNs) for Image Processing
+                  </b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Overview of CNNs
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Convolutional Layers, Pooling Layers
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Applications in Computer Vision
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Overview of Transfer Learning in CNNs
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Recurrent Neural Networks (RNNs) and Their Applications</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - RNN Fundamentals
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Long Short-Term Memory (LSTM) Networks
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Sequence-to-Sequence Models (e.g., LSTM with Attention)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Applications in Time-Series and Sequence Data
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Introduction to Natural Language Processing (NLP)</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Basics of NLP Tasks
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Text Preprocessing: Cleaning, Tokenization
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Feature Extraction: Word Embeddings (Word2Vec, GloVe)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Text Classification with CNNs and RNNs
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Transformers and Advanced NLP Models</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Introduction to Transformers and Attention Mechanisms
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Transformer Architecture and Applications
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;BERT and its Variants
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Generative Adversarial Networks (GANs) for Text Generation
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Advanced NLP Techniques</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Feature Engineering for Text Data
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Named Entity Recognition (NER) and Sequence Labeling Tasks
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Self-Supervised Learning Techniques in NLP
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Autoencoders and Variational Autoencoders (VAEs)
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Model Evaluation, Hyperparameter Tuning, and Deployment</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Evaluation Metrics for Deep Learning and NLP Models
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Hyperparameter Optimization Techniques
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Model Interpretability (Attention Visualization, SHAP)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Data Preparation for Deep Learning (including augmentation techniques)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Deployment of Deep Learning Models (Containerization, Model Serving)
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Additional Concepts</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Generative AI:
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp; Generative Adversarial Networks (GANs): Introduction and applications in generating text and images.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp; Autoencoders and Variational Autoencoders (VAEs): Techniques for generative modeling and feature learning.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modules">
+            <div class="module1">
+              <div class="mod1">
+                <!-- Main Module Details -->
+                <div class="mod1detail1">
+                  <h4 class="mod1head1">Module 6</h4>
+                  <p class="mod1tick">&#x2714;</p>
+                </div>
+                <div class="mod1sub">
+                  <h2 class="mod1head2">
+                    Git in Industrial Software Development
+                  </h2>
+                  <div class="vido" data-target="coursevideo" id="continueBtn">
+                    watch videos
+                  </div>
+                </div>
+                <br />
+                <div class="mod1detail2">
+                  <p class="mod1detail1sec1">Submission : none</p>
+                  <p class="mod1detail1sec2">All content completed 🎉</p>
+                </div>
+              </div>
+              <div class="mod2">
+                <p>&#9660;</p>
+              </div>
+            </div>
+            <div class="mod3">
+              <!--Nested Accordion -->
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Version Control with Git</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Introduction to Version Control
+                  <br />- Importance: Understanding the need for version control in software development.
+                  <br />- Git Basics: Initializing a repository, staging files, committing changes.
+                  <br />- Branching and Merging
+                  <br />- Branching Strategies: Implementing branching strategies (e.g., feature branches, release branches).
+                  <br />- Merging Changes: Incorporating changes from one branch into another.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modules">
+            <div class="module1">
+              <div class="mod1">
+                <!-- Main Module Details -->
+                <div class="mod1detail1">
+                  <h4 class="mod1head1">Module 7</h4>
+                  <p class="mod1tick">&#x2714;</p>
+                </div>
+                <div class="mod1sub">
+                  <h2 class="mod1head2">Tableau and PowerBI</h2>
+                  <div class="vido" data-target="coursevideo" id="continueBtn">
+                    watch videos
+                  </div>
+                </div>
+                <br />
+                <div class="mod1detail2">
+                  <p class="mod1detail1sec1">Submission : none</p>
+                  <p class="mod1detail1sec2">All content completed 🎉</p>
+                </div>
+              </div>
+              <div class="mod2">
+                <p>&#9660;</p>
+              </div>
+            </div>
+            <div class="mod3">
+              <!--Nested Accordion -->
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Introduction to Data Visualization and Tableau Basics</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Introduction to Data Visualization
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Importance of Data Visualization
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Principles of Effective Visualization
+                  <br />- Introduction to Tableau
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Tableau Interface Overview
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Connecting to Data Sources
+                  <br />- Basic Visualization Types (Bar charts, Line charts, etc.)
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>
+                    Data Preparation, Basic Visualizations, and Storytelling
+                  </b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Data Preparation and Transformation in Tableau
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Cleaning and Structuring DataImportance of Data Visualization
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Data Blending and Joins
+                  <br />- Creating Basic Visualizations in Tableau
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Bar charts, Pie charts, and Scatter plots
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Formatting and Customizing Visualizations
+                  <br />- Dashboard Design and Storytelling in Tableau
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Designing Interactive Dashboards
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Best Practices for Dashboard Layout and Navigation
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Storytelling Techniques with Data
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>Advanced Visualizations and Data Analysis in Power BI</b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Advanced Visualizations in Tableau
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Advanced Chart Types (Dual-axis charts, Treemaps, etc.)
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Using Sets, Parameters, and Calculated Fields
+                  <br />- Introduction to Power BI
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Overview of Power BI Interface
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Connecting to Data Sources
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Basic Visualizations (Bar charts, Line charts, etc.)
+                </div>
+              </div>
+              <div class="nested-dropdown">
+                <div class="nested-toggle">
+                  <b>
+                    Data Aggregation, Calculations, and Dashboard Collaboration
+                  </b> &#9660;
+                </div>
+                <div class="nested-content">
+                  - Data Aggregation and Calculations in Tableau and Power BI
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Aggregating Data with Tableau and Power BI
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Creating Calculated Fields and Measures
+                  <br />- Dashboard Design and Collaboration in Power BI
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Designing Interactive Dashboards in Power BI
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Collaborating and Sharing Dashboards
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Deployment Considerations and Best Practices
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+//             document.addEventListener("DOMContentLoaded", function () {
+//             const modules = document.querySelectorAll(".modules");
+
+//         modules.forEach((module) => {
+//         const module1 = module.querySelector(".module1");
+//         const mod3 = module.querySelector(".mod3");
+//         const mod2 = module.querySelector(".mod2");
+//         const watchVideos = module.querySelector(".vido");
+
+//         // Handle clicking on "Watch Videos"
+//         watchVideos.addEventListener("click", function (event) {
+//             event.stopPropagation(); // Prevent the dropdown from toggling
+//             const currentActiveSection = document.querySelector(".content-section.active");
+//             const targetSectionId = event.target.getAttribute("data-target");
+//             const targetSection = document.getElementById(targetSectionId);
+//             if (currentActiveSection) {
+//                 currentActiveSection.classList.remove("active");
+//             }
+//             if (targetSection) {
+//                 targetSection.classList.add("active");
+//                 targetSection.scrollIntoView({ behavior: "smooth" });
+//             }
+//         });
+
+//         // Toggle dropdown when clicking on "module1"
+//         module1.addEventListener("click", function () {
+//             if (mod3.classList.contains("expanded")) {
+//                 mod3.style.maxHeight = null; // Collapse
+//                 mod3.classList.remove("expanded");
+//             } else {
+//                 mod3.style.maxHeight = mod3.scrollHeight + "vh"; // Expand
+//                 mod3.classList.add("expanded");
+//             }
+//             mod2.classList.toggle("rotate");
+//         });
+
+//         // Handle nested dropdown toggles
+//         const nestedDropdowns = mod3.querySelectorAll('.nested-dropdown');
+//         nestedDropdowns.forEach((dropdown) => {
+//             const toggle = dropdown.querySelector('.nested-toggle');
+//             toggle.addEventListener('click', () => {
+//                 dropdown.classList.toggle('expanded');
+//             });
+//         });
+//     });
+// });
+document.addEventListener("DOMContentLoaded", function () {
+    const modules = document.querySelectorAll(".modules");
+
+    modules.forEach((module) => {
+        const module1 = module.querySelector(".module1");
+        const mod3 = module.querySelector(".mod3");
+        const mod2 = module.querySelector(".mod2");
+        const watchVideos = module.querySelector(".vido");
+
+        // Handle clicking on "Watch Videos"
+        watchVideos.addEventListener("click", function (event) {
+            event.stopPropagation(); // Prevent the dropdown from toggling
+            const currentActiveSection = document.querySelector(
+                ".content-section.active"
+            );
+            const targetSectionId = event.target.getAttribute("data-target");
+            const targetSection = document.getElementById(targetSectionId);
+            if (currentActiveSection) {
+                currentActiveSection.classList.remove("active");
+            }
+            if (targetSection) {
+                targetSection.classList.add("active");
+                targetSection.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+
+        // Toggle dropdown when clicking on "module1"
+        module1.addEventListener("click", function () {
+            // Collapse all nested dropdowns within this module
+            const nestedDropdowns = mod3.querySelectorAll(".nested-dropdown");
+            nestedDropdowns.forEach((dropdown) => {
+                dropdown.classList.remove("expanded");
+                dropdown.style.maxHeight = null; // Collapse nested dropdowns
+            });
+
+            // Collapse or expand the main dropdown
+            if (mod3.classList.contains("expanded")) {
+                mod3.style.maxHeight = null; // Collapse
+                mod3.classList.remove("expanded");
+            } else {
+                const viewportHeight = window.innerHeight;
+                const contentHeight = mod3.scrollHeight;
+                const heightInVh = (contentHeight / viewportHeight) * 1800;
+
+                mod3.style.maxHeight = heightInVh + "vh"; // Expand to calculated height
+                mod3.classList.add("expanded");
+            }
+            mod2.classList.toggle("rotate");
+        });
+
+        // Handle nested dropdown toggles
+        const nestedDropdowns = mod3.querySelectorAll(".nested-dropdown");
+        nestedDropdowns.forEach((dropdown) => {
+            const toggle = dropdown.querySelector(".nested-toggle");
+            toggle.addEventListener("click", () => {
+                if (dropdown.classList.contains("expanded")) {
+                    dropdown.style.maxHeight = null; // Collapse
+                } else {
+                    dropdown.style.maxHeight = dropdown.scrollHeight + "vh"; // Expand
+                }
+                dropdown.classList.toggle("expanded");
+            });
+        });
+    });
+});
+          </script>
+        </div>
+      </div>
+      <div class="content-section hidden" id="tasks">
+        <!-- <div class="taskshead"> -->
+        <h2>Tasks</h2>
+        <!-- </div> -->
+        <div class="tasksection">
+          <div class="todosec">
+            <div class="tododiv1">
+              <svg class="tasksvg"
+                   fill="none"
+                   height="24"
+                   viewBox="0 0 24 24"
+                   width="24"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd"
+                      d="M5 3.9375C4.71821 3.9375 4.44796 4.04944 4.2487 4.2487C4.04944 4.44796 3.9375 4.71821 3.9375 5V19C3.9375 19.2818 4.04944 19.552 4.2487 19.7513C4.44796 19.9506 4.71821 20.0625 5 20.0625H19C19.2818 20.0625 19.552 19.9506 19.7513 19.7513C19.9506 19.552 20.0625 19.2818 20.0625 19V5C20.0625 4.71821 19.9506 4.44796 19.7513 4.2487C19.552 4.04944 19.2818 3.9375 19 3.9375H5ZM2.92287 2.92287C3.47376 2.37199 4.22093 2.0625 5 2.0625H19C19.7791 2.0625 20.5262 2.37199 21.0771 2.92287C21.628 3.47376 21.9375 4.22093 21.9375 5V19C21.9375 19.7791 21.628 20.5262 21.0771 21.0771C20.5262 21.628 19.7791 21.9375 19 21.9375H5C4.22093 21.9375 3.47376 21.628 2.92287 21.0771C2.37199 20.5262 2.0625 19.7791 2.0625 19V5C2.0625 4.22093 2.37199 3.47376 2.92287 2.92287Z"
+                      fill="#E0E0E0"
+                      fill-rule="evenodd" />
+                
+              </svg>
+              <h5 class="todohead">To do</h5>
+            </div>
+            <div class="todocards">
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">
+                    SQL: Design and Query a Relational Database
+                  </h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Design a relational database for a
+                  fictional e-commerce company. Create tables for products,
+                  customers, orders, and order details. Then, write SQL
+                  queries to retrieve insights such as total sales by
+                  customer, the most popular products, and average order
+                  values.
+                  <br />
+                  <br />Instructions:
+                  <br />
+                  <br />&nbsp;&nbsp;- Use an SQL environment (e.g., MySQL,
+                  PostgreSQL, SQLite) in Google Colab or a local setup.
+                  <br />&nbsp;&nbsp;- Create tables for products, customers, orders,
+                  and order_details with appropriate columns and
+                  relationships.
+                  <br />&nbsp;&nbsp;- Insert sample data into each table.
+                  <br />&nbsp;&nbsp;- Write queries to:
+                  <br />Retrieve the total
+                  sales for each customer.
+                  <br />Identify the most frequently
+                  purchased products.
+                  <br />Calculate the average value of
+                  orders.
+                  <br />Find customers who haven’t made a purchase in
+                  the last 6 months.
+                  <br />&nbsp;&nbsp;- Optimize the queries for performance by
+                  creating indexes where necessary.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">
+                    Data Science: Exploratory Data Analysis (EDA) and
+                    Statistical Summary
+                  </h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Conduct an Exploratory Data Analysis
+                  (EDA) on a dataset to uncover patterns, relationships, and
+                  insights. Perform basic statistical analysis, including
+                  measures of central tendency and dispersion.
+                  <br />Instructions:
+                  <br />
+                  <br />&nbsp;&nbsp;- Choose a dataset (e.g., a public dataset from
+                  Kaggle) and load it into a Google Colab notebook.
+                  <br />&nbsp;&nbsp;- Clean the dataset by handling missing values
+                  and outliers.
+                  <br />&nbsp;&nbsp;- Perform EDA using Pandas and Matplotlib:
+                  <br />Visualize distributions of key variables.
+                  <br />Explore correlations between variables.
+                  <br />Use box
+                  plots and scatter plots to identify trends.
+                  <br />&nbsp;&nbsp;- Calculate statistical summaries like mean,
+                  median, mode, variance, and standard deviation.
+                  <br />&nbsp;&nbsp;- Present your findings in a well-organized
+                  report.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">
+                    Tableau and PowerBI: Creating Interactive Dashboards
+                  </h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Create interactive dashboards using
+                  Tableau or PowerBI to visualize sales, marketing, or
+                  operational data. The dashboard should include multiple
+                  views (e.g., charts, tables) and allow users to filter and
+                  interact with the data.
+                  <br />
+                  <br />Instructions:
+                  <br />
+                  <br />&nbsp;&nbsp;- Use Tableau or PowerBI to connect to a
+                  dataset, such as sales or customer data.
+                  <br />&nbsp;&nbsp;- Create various visualizations, including:
+                  <br />A sales trend over time (line chart).
+                  <br />A sales
+                  breakdown by product category (bar chart).
+                  <br />Geographic
+                  distribution of sales (map visualization).
+                  <br />&nbsp;&nbsp;- Add filters and interactivity to allow users
+                  to explore the data (e.g., filter by date range or product
+                  category).
+                  <br />&nbsp;&nbsp;- Publish the dashboard to Tableau Public or
+                  PowerBI Service and share the link.
+                  <br />&nbsp;&nbsp;- Provide a brief explanation of the insights
+                  obtained from the dashboard.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">
+                    Machine Learning: Build and Evaluate a Predictive Model
+                  </h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Build a machine learning model to predict
+                  a target variable (e.g., house prices, customer churn).
+                  Preprocess the data, select an appropriate algorithm, train
+                  the model, and evaluate its performance.
+                  <br />
+                  <br />Instructions:
+                  <br />
+                  <br />&nbsp;&nbsp;- Load a dataset suitable for regression or
+                  classification (e.g., the Boston Housing dataset for
+                  regression).
+                  <br />&nbsp;&nbsp;- Preprocess the data by handling missing
+                  values, encoding categorical variables, and scaling
+                  features.
+                  <br />&nbsp;&nbsp;- Split the data into training and testing sets.
+                  <br />&nbsp;&nbsp;- Select a machine learning algorithm (e.g.,
+                  Linear Regression, Random Forest, or SVM).
+                  <br />&nbsp;&nbsp;- Train the model on the training data and
+                  evaluate its performance on the test data using metrics like
+                  RMSE for regression or accuracy/F1-score for classification.
+                  <br />&nbsp;&nbsp;- Tune the model’s hyperparameters to improve
+                  performance.
+                  <br />&nbsp;&nbsp;- Present a summary of the model’s performance
+                  and the impact of different features.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">
+                    Deep Learning and NLP: Develop a Text Classification Model
+                  </h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Develop a deep learning model for text
+                  classification, such as sentiment analysis. Use techniques
+                  like tokenization, embedding, and neural networks (e.g.,
+                  LSTM, Transformer) to build the model.
+                  <br />Instructions:
+                  <br />
+                  <br />&nbsp;&nbsp;- Select a text dataset (e.g., IMDb movie
+                  reviews for sentiment analysis) and load it into Google
+                  Colab.
+                  <br />&nbsp;&nbsp;- Preprocess the text data: Tokenize the text.
+                  Convert tokens into embeddings (e.g., using Word2Vec or
+                  pre-trained embeddings like GloVe).
+                  <br />&nbsp;&nbsp;- Build a neural network model (e.g., LSTM, GRU,
+                  or Transformer) for text classification.
+                  <br />&nbsp;&nbsp;- Train the model and evaluate its accuracy on a
+                  validation set.
+                  <br />&nbsp;&nbsp;- Test the model on unseen data and analyze its
+                  predictions.
+                  <br />&nbsp;&nbsp;- Visualize the performance metrics (e.g.,
+                  accuracy, loss) over epochs.
+                  <br />&nbsp;&nbsp;- Discuss potential improvements or alternative
+                  models (e.g., BERT for NLP tasks).
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">
+                    Big Data Technologies: Process Large-Scale Data with
+                    Apache Spark
+                  </h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Use Apache Spark to process a large-scale
+                  dataset and perform operations like filtering, aggregation,
+                  and joining. Demonstrate the use of Spark’s RDDs and
+                  DataFrames for handling big data.
+                  <br />
+                  <br />Instructions:
+                  <br />
+                  <br />&nbsp;&nbsp;- Set up a Google Colab notebook with PySpark to
+                  work with Spark.
+                  <br />&nbsp;&nbsp;- Load a large dataset into Spark (e.g., a CSV
+                  file with millions of rows).
+                  <br />&nbsp;&nbsp;- Perform basic operations like filtering,
+                  selecting, and aggregating data using Spark DataFrames.
+                  <br />&nbsp;&nbsp;- Use Spark’s RDDs to perform a map-reduce
+                  operation.
+                  <br />&nbsp;&nbsp;- Join multiple DataFrames/RDDs to combine
+                  datasets.
+                  <br />&nbsp;&nbsp;- Measure the performance of operations and
+                  discuss the benefits of using Spark for big data processing.
+                  <br />&nbsp;&nbsp;- Visualize key findings using Matplotlib or
+                  Seaborn.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">
+                    Create a Personal Portfolio WebsiteSoftware Engineering:
+                    Implement a Design Pattern in a Software Project
+                  </h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Implement a commonly used design pattern
+                  (e.g., Singleton, Factory, Observer) in a software project.
+                  Demonstrate how the pattern improves code organization and
+                  maintainability.
+                  <br />
+                  <br />Instructions:
+                  <br />
+                  <br />&nbsp;&nbsp;- Choose a design pattern relevant to your
+                  project or a hypothetical scenario (e.g., a Singleton
+                  pattern for a database connection).
+                  <br />&nbsp;&nbsp;- Create a new Python project or module in
+                  Google Colab or your local IDE.
+                  <br />&nbsp;&nbsp;- Implement the design pattern within the
+                  project, explaining each component’s role.
+                  <br />&nbsp;&nbsp;- Write unit tests to validate the functionality
+                  of the pattern.
+                  <br />&nbsp;&nbsp;- Discuss the advantages of using the design
+                  pattern and how it improves the codebase.
+                  <br />&nbsp;&nbsp;- Compare the implementation with an alternative
+                  approach (e.g., without the design pattern) and highlight
+                  the differences.
+                  <br />&nbsp;&nbsp;- Document the project with clear comments and a
+                  README file explaining the design and usage.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">
+                    Comprehensive Machine Learning Pipeline: End-to-End Model
+                    Deployment
+                  </h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Create an end-to-end machine learning
+                  pipeline that includes data preprocessing, model training,
+                  hyperparameter tuning, and deployment. Deploy the model
+                  using a web framework like Flask.
+                  <br />
+                  <br />Instructions:
+                  <br />
+                  <br />&nbsp;&nbsp;- Select a dataset and define a machine learning
+                  problem (e.g., predicting customer churn).
+                  <br />&nbsp;&nbsp;- Build a pipeline that includes:
+                  <br />Data
+                  preprocessing (e.g., feature engineering, scaling).
+                  <br />Model selection and training.
+                  <br />Hyperparameter
+                  tuning using GridSearchCV or RandomizedSearchCV.
+                  <br />&nbsp;&nbsp;- Save the trained model using joblib or pickle.
+                  <br />&nbsp;&nbsp;- Create a simple web application using Flask
+                  that allows users to input data and get predictions from the
+                  deployed model.
+                  <br />&nbsp;&nbsp;- Deploy the Flask app to a platform like Heroku
+                  or Google Cloud.
+                  <br />&nbsp;&nbsp;- Test the web application by inputting data and
+                  validating predictions.
+                  <br />&nbsp;&nbsp;- Document the entire process from data loading
+                  to deployment, and provide the deployment URL for testing.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="progsec">
+            <div class="progdiv1">
+              <svg class="tasksvg"
+                   fill="none"
+                   height="24"
+                   viewBox="0 0 24 24"
+                   width="24"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd"
+                      d="M5.75 7C5.75 6.58579 6.08579 6.25 6.5 6.25H17.5C17.9142 6.25 18.25 6.58579 18.25 7C18.25 7.41421 17.9142 7.75 17.5 7.75H6.5C6.08579 7.75 5.75 7.41421 5.75 7Z"
+                      fill="#E0E0E0"
+                      fill-rule="evenodd" />
+                
+
+                <path clip-rule="evenodd"
+                      d="M5.75 17C5.75 16.5858 6.08579 16.25 6.5 16.25H17.5C17.9142 16.25 18.25 16.5858 18.25 17C18.25 17.4142 17.9142 17.75 17.5 17.75H6.5C6.08579 17.75 5.75 17.4142 5.75 17Z"
+                      fill="#E0E0E0"
+                      fill-rule="evenodd" />
+                
+
+                <path clip-rule="evenodd"
+                      d="M12 12.75C10.6076 12.75 9.27226 13.3031 8.28769 14.2877C7.30312 15.2723 6.75 16.6076 6.75 18V20C6.75 20.0663 6.77634 20.1299 6.82322 20.1768C6.87011 20.2237 6.93369 20.25 7 20.25H17C17.0663 20.25 17.1299 20.2237 17.1768 20.1768C17.2237 20.1299 17.25 20.0663 17.25 20V18C17.25 16.6076 16.6969 15.2723 15.7123 14.2877C14.7277 13.3031 13.3924 12.75 12 12.75ZM7.22703 13.227C8.4929 11.9612 10.2098 11.25 12 11.25C13.7902 11.25 15.5071 11.9612 16.773 13.227C18.0388 14.4929 18.75 16.2098 18.75 18V20C18.75 20.4641 18.5656 20.9092 18.2374 21.2374C17.9092 21.5656 17.4641 21.75 17 21.75H7C6.53587 21.75 6.09075 21.5656 5.76256 21.2374C5.43437 20.9092 5.25 20.4641 5.25 20V18C5.25 16.2098 5.96116 14.4929 7.22703 13.227Z"
+                      fill="#E0E0E0"
+                      fill-rule="evenodd" />
+                
+
+                <path clip-rule="evenodd"
+                      d="M5.76256 2.76256C6.09075 2.43437 6.53587 2.25 7 2.25H17C17.4641 2.25 17.9092 2.43437 18.2374 2.76256C18.5656 3.09075 18.75 3.53587 18.75 4V6C18.75 7.79021 18.0388 9.5071 16.773 10.773C15.5071 12.0388 13.7902 12.75 12 12.75C10.2098 12.75 8.4929 12.0388 7.22703 10.773C5.96116 9.5071 5.25 7.79021 5.25 6V4C5.25 3.53587 5.43437 3.09075 5.76256 2.76256ZM7 3.75C6.9337 3.75 6.87011 3.77634 6.82322 3.82322C6.77634 3.87011 6.75 3.9337 6.75 4V6C6.75 7.39239 7.30312 8.72774 8.28769 9.71231C9.27226 10.6969 10.6076 11.25 12 11.25C13.3924 11.25 14.7277 10.6969 15.7123 9.71231C16.6969 8.72774 17.25 7.39239 17.25 6V4C17.25 3.93369 17.2237 3.87011 17.1768 3.82322C17.1299 3.77634 17.0663 3.75 17 3.75H7Z"
+                      fill="#E0E0E0"
+                      fill-rule="evenodd" />
+                
+              </svg>
+
+              <h5 class="proghead">In progress</h5>
+            </div>
+            <div class="progcards">
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Personal Expense Tracker</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Create a personal expense tracker that
+                  allows users to add, view, and categorize their expenses.
+                  The tracker should also calculate the total expenses and
+                  display a summary.
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Start a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Create a list to store expense records, where
+                  each record is a dictionary containing the amount, category,
+                  and description.
+                  <br />&nbsp;&nbsp;- Write functions to:
+                  <br />&nbsp;&nbsp;Add a new expense.
+                  <br />&nbsp;&nbsp;View all expenses.
+                  <br />&nbsp;&nbsp;Calculate the total amount spent.
+                  <br />&nbsp;&nbsp;&nbsp;&nbsp;Display expenses by category.
+                  <br />&nbsp;&nbsp;- Implement a loop to continuously prompt the
+                  user to add expenses, view them, or exit.
+                  <br />&nbsp;&nbsp;- Test the tracker by adding various expenses
+                  and viewing the summary.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Inventory Management System</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Develop an inventory management system
+                  that allows users to add, remove, and update items in an
+                  inventory. The system should also track the quantity and
+                  price of each item.
+                  <br />
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Open a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Initialize a dictionary to store inventory
+                  items, with item names as keys and a dictionary of quantity
+                  and price as values.
+                  <br />&nbsp;&nbsp;- Write functions to: Add a new item to the
+                  inventory. Update the quantity or price of an existing item.
+                  Remove an item from the inventory. Display the current
+                  inventory.
+                  <br />&nbsp;&nbsp;- Implement a menu-driven loop to manage the
+                  inventory.
+                  <br />&nbsp;&nbsp;- Test the system by adding, updating, and
+                  removing items, and viewing the inventory.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">CSV File Data Processor</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Build a program that reads a CSV file,
+                  processes the data (such as filtering, sorting, and
+                  summarizing), and outputs the results. The program should
+                  handle missing data gracefully.
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Start a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Use pandas to read a CSV file into a
+                  DataFrame.
+                  <br />&nbsp;&nbsp;- Write functions to: Filter rows based on
+                  specific criteria. Sort the data by a chosen column.
+                  Summarize the data (e.g., calculate the average, sum, or
+                  count of a column). Handle missing data by filling or
+                  dropping rows.
+                  <br />&nbsp;&nbsp;- Prompt the user to choose actions such as
+                  filtering or summarizing the data.
+                  <br />&nbsp;&nbsp;- Test the processor by loading a sample CSV
+                  file and performing various operations.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Library Management System</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Create a library management system that
+                  allows users to add books, issue books to members, return
+                  books, and view the list of books. The system should track
+                  the availability of each book.
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Open a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Initialize a dictionary to store books, with
+                  titles as keys and availability status as values.
+                  <br />&nbsp;&nbsp;- Write functions to: Add new books to the
+                  library. Issue a book to a member (mark it as unavailable).
+                  Return a book (mark it as available). Display all books and
+                  their availability.
+                  <br />&nbsp;&nbsp;- Implement a loop to manage the library system
+                  interactively.
+                  <br />&nbsp;&nbsp;- Test the system by adding, issuing, and
+                  returning books.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Sales Data Analysis with Pandas</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Perform sales data analysis using Pandas.
+                  Load a CSV file containing sales data and calculate key
+                  metrics such as total sales, average sales per transaction,
+                  and sales by category.
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Start a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Import the Pandas library and load the sales
+                  data CSV into a DataFrame.
+                  <br />&nbsp;&nbsp;- Calculate:
+                  <br />Total sales by summing the
+                  appropriate column.
+                  <br />Average sales per transaction.
+                  <br />Total sales per category by grouping the data.
+                  <br />&nbsp;&nbsp;- Visualize the results using simple plots
+                  (e.g., bar chart for sales by category).
+                  <br />&nbsp;&nbsp;- Test the analysis with the provided CSV file
+                  and ensure the calculations are correct.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Data Visualization Dashboard</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Create a data visualization dashboard
+                  using Matplotlib and/or Seaborn. The dashboard should
+                  display various plots based on a dataset, such as sales data
+                  or survey results.
+                  <br />
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Open a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Import necessary libraries such as Matplotlib
+                  and Seaborn.
+                  <br />&nbsp;&nbsp;- Load the dataset into a Pandas DataFrame.
+                  <br />&nbsp;&nbsp;- Create multiple plots, such as:
+                  <br />A bar
+                  chart showing sales by category.
+                  <br />A line plot showing
+                  trends over time.
+                  <br />A pie chart showing the distribution
+                  of categories.
+                  <br />&nbsp;&nbsp;- Arrange the plots into a coherent dashboard
+                  using Matplotlib's subplot feature.
+                  <br />&nbsp;&nbsp;- Test the dashboard by visualizing different
+                  datasets and adjusting the plots accordingly.
+                </p>
+              </div>
+              <!-- <div class="progcard">
+                hello
+              </div>-->
+            </div>
+          </div>
+          <div class="donesec">
+            <div class="donediv1">
+              <svg class="tasksvg"
+                   fill="none"
+                   height="24"
+                   viewBox="0 0 24 24"
+                   width="24"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd"
+                      d="M5 3.75C4.66848 3.75 4.35054 3.8817 4.11612 4.11612C3.8817 4.35054 3.75 4.66848 3.75 5V19C3.75 19.3315 3.8817 19.6495 4.11612 19.8839C4.35054 20.1183 4.66848 20.25 5 20.25H19C19.3315 20.25 19.6495 20.1183 19.8839 19.8839C20.1183 19.6495 20.25 19.3315 20.25 19V5C20.25 4.66848 20.1183 4.35054 19.8839 4.11612C19.6495 3.8817 19.3315 3.75 19 3.75H5ZM3.05546 3.05546C3.57118 2.53973 4.27065 2.25 5 2.25H19C19.7293 2.25 20.4288 2.53973 20.9445 3.05546C21.4603 3.57118 21.75 4.27065 21.75 5V19C21.75 19.7293 21.4603 20.4288 20.9445 20.9445C20.4288 21.4603 19.7293 21.75 19 21.75H5C4.27065 21.75 3.57118 21.4603 3.05546 20.9445C2.53973 20.4288 2.25 19.7293 2.25 19V5C2.25 4.27065 2.53973 3.57118 3.05546 3.05546Z"
+                      fill="#E0E0E0"
+                      fill-rule="evenodd" />
+                
+
+                <path clip-rule="evenodd"
+                      d="M15.5303 9.46967C15.8232 9.76256 15.8232 10.2374 15.5303 10.5303L11.5303 14.5303C11.2374 14.8232 10.7626 14.8232 10.4697 14.5303L8.46967 12.5303C8.17678 12.2374 8.17678 11.7626 8.46967 11.4697C8.76256 11.1768 9.23744 11.1768 9.53033 11.4697L11 12.9393L14.4697 9.46967C14.7626 9.17678 15.2374 9.17678 15.5303 9.46967Z"
+                      fill="#E0E0E0"
+                      fill-rule="evenodd" />
+                
+              </svg>
+              <h5 class="donehead">Done</h5>
+            </div>
+            <div class="donecards">
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Contact Book</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Develop a simple contact book that allows
+                  users to store and retrieve contact information. The contact
+                  book should use a dictionary to store names as keys and
+                  phone numbers as values.
+                  <br />
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Start a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Initialize an empty dictionary to store
+                  contacts.
+                  <br />&nbsp;&nbsp;- Create functions to add a new contact,
+                  retrieve a contact by name, and display all contacts.
+                  <br />&nbsp;&nbsp;- Use a loop to continuously prompt the user to
+                  perform actions (add, retrieve, display, or exit).
+                  <br />&nbsp;&nbsp;- Implement the functionality for each action
+                  inside the loop.
+                  <br />&nbsp;&nbsp;- Test the contact book by adding, retrieving,
+                  and displaying contacts.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Simple Quiz Game</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Create a simple quiz game with
+                  multiple-choice questions. The game should present a
+                  question and multiple answer options, and the user should
+                  select the correct answer.
+                  <br />
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Open a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Define a list of questions, where each
+                  question is a dictionary containing the question text,
+                  options, and correct answer.
+                  <br />&nbsp;&nbsp;- Create a function to display a question and
+                  prompt the user for an answer.
+                  <br />&nbsp;&nbsp;- Use a loop to iterate through the list of
+                  questions and keep track of the user's score.
+                  <br />&nbsp;&nbsp;- Display the final score at the end of the
+                  quiz.
+                  <br />&nbsp;&nbsp;- Test the quiz game by running through all the
+                  questions.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Log File Analyzer</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Create a log file analyzer that reads a
+                  log file and extracts specific information, such as error
+                  messages or user activity. The program should iterate
+                  through the file line by line and identify patterns.
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Start a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Prompt the user for a log file name and a
+                  keyword or pattern to search for.
+                  <br />&nbsp;&nbsp;- Open the log file in read mode and iterate
+                  through it line by line.
+                  <br />&nbsp;&nbsp;- Use an if statement to check if the keyword is
+                  present in each line.
+                  <br />&nbsp;&nbsp;- Store and print all lines containing the
+                  keyword.
+                  <br />&nbsp;&nbsp;- Test the log file analyzer with different log
+                  files and keywords.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Bank Account Class</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Implement a BankAccount class that models
+                  a simple bank account. The class should include methods for
+                  deposit, withdrawal, and checking the balance.
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />&nbsp;&nbsp;- Open a new notebook in Google Colab.
+                  <br />&nbsp;&nbsp;- Define a BankAccount class with an __init__
+                  method to initialize the account balance.
+                  <br />&nbsp;&nbsp;- Implement deposit, withdraw, and check_balance
+                  methods within the class.
+                  <br />&nbsp;&nbsp;- Create an instance of the BankAccount class
+                  and interact with it using the methods.
+                  <br />&nbsp;&nbsp;- Test the class by performing deposits,
+                  withdrawals, and balance checks.
+                </p>
+              </div>
+              <div class="todocard">
+                <div class="todocd1">
+                  <h4 class="todoques">Basic Data Analysis with NumPy</h4>
+                  <p>&#9660;</p>
+                </div>
+                <p class="todoans">
+                  Description:
+                  <br />Perform basic statistical analysis on a
+                  dataset using NumPy. Calculate the mean, median, and
+                  standard deviation of a list of numbers.
+                  <br />Instructions for Google Colab:
+                  <br />
+                  <br />Start a new notebook in Google Colab.
+                  <br />Import the
+                  NumPy library using import numpy as np.
+                  <br />Create a list
+                  or NumPy array of numbers to analyze.
+                  <br />Use np.mean(),
+                  np.median(), and np.std() to calculate the mean, median, and
+                  standard deviation, respectively.
+                  <br />Print the results.
+                  <br />Test the analysis with different datasets.
+                </p>
+              </div>
+              <!-- <div class="donecard">
+                hello
+              </div>-->
+            </div>
+          </div>
+          <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                var cards = document.querySelectorAll(".todocard");
+
+                cards.forEach(function (card) {
+                  card
+                    .querySelector(".todocd1")
+                    .addEventListener("click", function () {
+                      card.classList.toggle("active");
+
+                      // Adjust the max-height based on the content
+                      var content = card.querySelector(".todoans");
+                      if (card.classList.contains("active")) {
+                        content.style.maxHeight = content.scrollHeight + "vh";
+                      } else {
+                        content.style.maxHeight = null;
+                      }
+                    });
+                });
+              });
+            </script>
+        </div>
+      </div>
+      <div class="content-section hidden" id="coursevideo">
+        <h2 class="vdheading">Videos</h2>
+        <h2 class="vdhead">Python</h2>
+        <div class="videocontent">
+          <div class="vdmain">
+            <div class="vdbox">
+              <div class="vdo">
+                  <video id="video1" class="vdo1 vdo2"
+                         src="./assets/python/Lec-1_ What is Python_ Introduction to Python 🐍 _ Why Python _ Where Python is used.. (1080p).mp4"
+                         target="_blank">
+                  </video>
+              </div>
+              <div class="vddescription">
+                  <h3 class="vdtitle">Python - Introduction to Python</h3>
+              </div>
+          </div>          
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video2" class="vdo1 vdo2"
+                       src="./assets/python/Python - Setup Visual Studio Code with Anaconda (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Setup</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video3" class="vdo1 vdo2"
+                       src="./assets/python/Variables & Data Types In Python _ Python Tutorial For Beginners _ Python Programming _ Edureka (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Variables & Data Types</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video4" class="vdo1 vdo2"
+                       src="./assets/python/Python Lists & Tuples for Beginners _ Python tutorial (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Lists & Tuples</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video5" class="vdo1 vdo2"
+                       src="./assets/python/Python Dictionaries and Sets for Beginners _ Python tutorial (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Dictionaries and Sets</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video6" class="vdo1 vdo2"
+                       src="./assets/python/Control Flow in Python - If Elif Else Statements (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Control Flow</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video7" class="vdo1 vdo2"
+                       src="./assets/python/Python_ Lambda, Map, Filter, Reduce Functions (720p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Python - Lambda, Map, Filter, Reduce Functions
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video8" class="vdo1 vdo2"
+                       src="./assets/python/INTRO to the Python 3 Built-In Function Tutorial Series (1_71) - Learn Python Standard Library (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Standard Library</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video9" class="vdo1 vdo2"
+                       src="./assets/python/Advanced Exception Handling in Python (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Exception Handling</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video10" class="vdo1 vdo2"
+                       src="./assets/python/Python Modules and Packages - A Brief Introduction (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Modules and Packages</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video11" class="vdo1 vdo2"
+                       src="./assets/python/File Handling In Python _ Python File IO _ Python Read & Write Files _ Python Tutorial _ Simplilearn (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - File Handling</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video12" class="vdo1 vdo2"
+                       src="./assets/python/Iterator And Generator In Python _ Python Generators And Iterators Explained _ Python _ Simplilearn (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Iterator And Generator</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video13" class="vdo1 vdo2"
+                       src="./assets/python/OOPS in Python _ Object Oriented Programming In Python _ Python Tutorial for Beginners _ Simplilearn (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - OOPS</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video14" class="vdo1 vdo2"
+                       src="./assets/python/Complete Python NumPy for Data Science in 30 minutes _ NumPy Python Full Guide (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - NumPy</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video15" class="vdo1 vdo2"
+                       src="./assets/python/Complete Python Pandas for Data Science in 30 minutes  - Tutorial for Beginners (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Pandas</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video16" class="vdo1 vdo2"
+                       src="./assets/python/Python for Data Science _ Matplotlib _ Seaborn _ Data Visualization in Python _ Data Visualization (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Python - Matplotlib Seaborn Data Visualization
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video17" class="vdo1 vdo2"
+                       src="./assets/python/Django tutorials _ What is Django_ _ Python Web Framework (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - What is Django</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video18" class="vdo1 vdo2"
+                       src="./assets/python/Flask in 6 Minutes 🔥 (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Flask</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video id="video19" class="vdo1 vdo2"
+                       src="./assets/python/Streamlit_ The Fastest Way To Build Python Apps_ (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Python - Streamlit</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="vdhead">
+          Foundations of Mathematics in Data Science and Exploratory Data
+          Analysis (EDA)
+        </h2>
+        <div class="videocontent">
+          <div class="vdmain">
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Introduction _ Mathematics and statistics for data science and machine learning (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Introduction _ Mathematics and statistics
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Descriptive Statistics [Simply explained] (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Descriptive Statistics</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Introduction to Probability, Basic Overview - Sample Space, & Tree Diagrams (720p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Probability Basics</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Linear Algebra For Data Science And Machine Learning _ Linear Algebra Tutorial _ Simplilearn (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Linear Algebra Basics</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Why is Linear Algebra Useful_ (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Linear Algebra Applications</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Calculus Basics - Introduction _ Infinity Learn (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Calculus Basics</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Introduction to Optimization Techniques (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Optimization Techniques</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Introduction To Statistics And Its Types For Starters (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Introduction To Statistics</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Regression analysis (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Regression analysis</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/What is Exploratory Data Analysis (EDA)_ _ Techcanvass (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Advanced Regression</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/What is Data Collection_ How Data is Collected (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Data Collection and Preparation</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/4.3. Handling Missing Values in Machine Learning _ Imputation _ Dropping (720p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Handling Missing Values and Duplicates</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/L25_ Data Transformations _ Smoothing, Aggregation, Generalization, Normalization(Min-Max, Z-Score) (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Data Transformations</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Summary statistics_ Mean, Median, Mode - what they are and which one to use (720p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Summary Statistics</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Introduction to Multivariate Analysis (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Multivariate Analysis</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Introduction to Data _ Data Visualization _ GeeksforGeeks School (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Data Visualization</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Science of Data Visualization _ Bar, scatter plot, line, histograms, pie, box plots, bubble chart (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Basic and Advanced Plots</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/What is feature engineering _ Feature Engineering Tutorial Python # 1 (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Feature Engineering</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/28 Outlier Analysis, Types, Outlier Detection & Techniques _DM_ (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Outlier Detection and Anomalies</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/What is Hypothesis Testing _ Math, Statistics for data science, machine learning (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Hypothesis Testing</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/eda/Level Up Data Storytelling with Rich Media in Jupyter Notebooks _ Python _ Sunny Solanki (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Summarizing and Presenting Findings</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="vdhead">Machine Learning</h2>
+        <div class="videocontent">
+          <div class="vdmain">
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Machine Learning _ What Is Machine Learning_ _ Introduction To Machine Learning _ 2024 _ Simplilearn (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Machine Learning - Introduction</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Data Preprocessing in Machine Learning _ Complete Steps - in English (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Machine Learning - Data Preprocessing</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/2. Supervised Learning- Machine Learning (720p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Machine Learning - Supervised Learning</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/6 Types of Classification Algorithms (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Types of Classification Algorithms
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/12 Evaluation Metrics in Classification (360p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Evaluation Metrics in Classification
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Lec-3_ Introduction to Regression with Real Life Examples (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Introduction to Regression with Real Life
+                  Examples
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Types of Regression Models _ Simple Linear _ Multiple _ Polynomial _ Logistic Regression Dr. Mahesh (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Types of Regression Models
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/What are the Metrics used to Evaluate the performance of Regression Models in ML DM by Mahesh Huddar (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Evaluation Metrics for Regression
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/[C3 _ L1] _ Advanced Machine Learning _ Advanced Classification Techniques _ Utkarshini Edutech (720p60fps).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Advanced Classification
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Tutorial 27- Ridge and Lasso Regression Indepth Intuition- Data Science (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Machine Learning - Advanced Regression</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Unsupervised Learning_ Crash Course AI #6 (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Unsupervised Learning_ Crash Course AI
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Clustering with DBSCAN, Clearly Explained!!! (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Clustering Techniques
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Dimensionality Reduction (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Dimensionality Reduction
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Apriori Algorithm Explained _ Association Rule Mining _ Finding Frequent Itemset _ Edureka (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Association Rule Learning
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Unsupervised Learning _ Unsupervised Learning Algorithms _ Machine Learning Tutorial _ Simplilearn (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Unsupervised Learning Algorithms
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/What Is Self-Supervised Learning and Why Care_ (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Self-Supervised Learning
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/How to evaluate ML models _ Evaluation metrics for machine learning (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Model Evaluation Techniques
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Introduction to Reinforcement Learning _ Scope of Reinforcement Learning by Mahesh Huddar (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Introduction to Reinforcement Learning
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Ensemble (Boosting, Bagging, and Stacking) in Machine Learning_ Easy Explanation for Data Scientists (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Machine Learning - Ensemble Methods</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/Scalable hyperparameter transfer learning - Perrone - Workshop 3 - CEB T1 2019 (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Transfer Learning and Hyperparameter
+                  Optimization
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       poster
+                       src="./assets/machine_learning/The most important AI trends in 2024 (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Machine Learning - Future Trends and Applications
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="vdhead">Deep Learning & NLP</h2>
+        <div class="videocontent">
+          <div class="vdmain">
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       src="./assets/deeeeeep/1. Introduction to Artificial Neural Network _ How ANN Works _ Soft Computing _ Machine Learning (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Basics of Artificial Neural Networks (ANNs)
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       src="./assets/deeeeeep/What are Convolutional Neural Networks (CNNs)_ (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Convolutional Neural Networks</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       src="./assets/deeeeeep/What is Recurrent Neural Network (RNN)_ Deep Learning Tutorial 33 (Tensorflow, Keras & Python) (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Recurrent Neural Network</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       src="./assets/deeeeeep/Text Preprocessing _ tokenization _ cleaning _ stemming _ stopwords _ lemmatization (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Basics of NLP Tasks</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       src="./assets/deeeeeep/Illustrated Guide to Transformers Neural Network_ A step by step explanation (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Illustrated Guide to Transformers Neural Network
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       src="./assets/deeeeeep/Attention mechanism_ Overview (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Attention mechanism_ Overview</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       src="./assets/deeeeeep/Feature Engineering on Text data (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Feature Engineering for Text Data</h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       src="./assets/deeeeeep/Precision, Recall, F1 score, True Positive_Deep Learning Tutorial 19 (Tensorflow2.0, Keras & Python) (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">
+                  Evaluation Metrics for Deep Learning and NLP Models
+                </h3>
+              </div>
+            </div>
+            <div class="vdbox">
+              <div class="vdo">
+                <video class="vdo2"
+                       src="./assets/deeeeeep/What are Generative AI models_ (1080p).mp4"
+                       target="_blank">
+                </video>
+              </div>
+              <div class="vddescription">
+                <h3 class="vdtitle">Generative AI models</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fullscreen Video Popup -->
+        <div class="fullscreen-popup" id="videoPopup">
+          <span class="close-popup">&times;</span>
+          <video controls id="popupVideo"></video>
+        </div>
+      </div>
+      <!-- <div class="content-section hidden" id="settings">
+        <h2 class="settings-header">Settings</h2>
+        <div class="settings-content">
+          <section class="settings-category">
+            <h3>Profile</h3>
+            <label for="username">Username:</label>
+            <input id="username"
+                   name="username"
+                   placeholder="Enter your username"
+                   type="text" />
+
+            <label for="email">Email:</label>
+            <input id="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   type="email" />
+
+            <label for="password">Password:</label>
+            <input id="password"
+                   name="password"
+                   placeholder="Enter new password"
+                   type="password" />
+          </section>
+
+          <section class="settings-category">
+            <h3>Preferences</h3>
+            <label for="theme">Theme:</label>
+            <select id="theme" name="theme">
+              <option value="dark">Dark Mode</option>
+              <option value="light">Light Mode</option>
+            </select>
+
+            <label for="notifications">Notifications:</label>
+            <input id="notifications" name="notifications" type="checkbox" />
+            <label for="notifications">Enable Notifications</label>
+          </section>
+
+          <section class="settings-category">
+            <h3>Privacy</h3>
+            <label for="profile-visibility">Profile Visibility:</label>
+            <select id="profile-visibility" name="profile-visibility">
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
+
+            <label for="data-sharing">Data Sharing:</label>
+            <input id="data-sharing" name="data-sharing" type="checkbox" />
+            <label for="data-sharing">Allow data sharing with partners</label>
+          </section>
+
+          <button class="save-button" id="save-settings">Save Settings</button>
+        </div>
+      </div> -->
+      <div class="content-section hidden" id="help">
+        <h2 class="help-header">Help</h2>
+        <div class="help-content">
+          <!-- Accordions and Contact Cards -->
+          <div class="accordion-container">
+            <div class="accordion">
+              <h3 class="accordion-title">
+                General Questions
+                <span class="arrow">&#9660;</span>
+              </h3>
+              <div class="accordion-content">
+                <p>
+                  <strong>How do I get started?</strong>
+                </p>
+                <p>
+                  Welcome to the platform! To get started, visit our
+                  <a class="link" href="#getting-started-guide">
+                    Getting Started Guide
+                  </a>
+                  for step-by-step instructions.
+                </p>
+                <p>
+                  <strong>How do I reset my password?</strong>
+                </p>
+                <p>
+                  If you've forgotten your password, go to the
+                  <a class="link" href="#forgot-password">
+                    Password Reset
+                  </a>
+                  page and follow the instructions to reset it.
+                </p>
+                <p>
+                  <strong>How can I update my profile?</strong>
+                </p>
+                <p>
+                  To update your profile information, log in to your account
+                  and go to the
+                  <a class="link" href="#profile-settings">
+                    Profile Settings
+                  </a>
+                  page.
+                </p>
+              </div>
+            </div>
+            <div class="accordion">
+              <h3 class="accordion-title">
+                Technical Support
+                <span class="arrow">&#9660;</span>
+              </h3>
+              <div class="accordion-content">
+                <p>
+                  <strong>
+                    My course videos won't play. What should I do?
+                  </strong>
+                </p>
+                <p>
+                  Ensure your browser is up to date and try clearing your
+                  cache. If the issue persists, visit our
+                  <a class="link" href="#technical-troubleshooting">
+                    Technical Troubleshooting Guide
+                  </a>
+                  for more help.
+                </p>
+                <p>
+                  <strong>How do I report a technical issue?</strong>
+                </p>
+                <p>
+                  Report technical issues by contacting our support team
+                  through the
+                  <a class="link" href="#support-contact-form">
+                    Support Contact Form
+                  </a>
+                  or by sending an email to techsupport@platform.com.
+                </p>
+                <p>
+                  <strong>Can I access the platform offline?</strong>
+                </p>
+                <p>
+                  Currently, our platform requires an internet connection. For
+                  offline access, check out our
+                  <a class="link" href="#offline-access">
+                    Offline Access Options
+                  </a>.
+                </p>
+              </div>
+            </div>
+            <div class="accordion">
+              <h3 class="accordion-title">
+                Account Management
+                <span class="arrow">&#9660;</span>
+              </h3>
+              <div class="accordion-content">
+                <p>
+                  <strong>How do I cancel my subscription?</strong>
+                </p>
+                <p>
+                  To cancel your subscription, go to the
+                  <a class="link" href="#subscription-management">
+                    Subscription Management
+                  </a>
+                  page and follow the instructions provided.
+                </p>
+                <p>
+                  <strong>How can I change my email address?</strong>
+                </p>
+                <p>
+                  To change your email address, visit the
+                  <a class="link" href="#account-settings">
+                    Account Settings
+                  </a>
+                  page and update your email information.
+                </p>
+                <p>
+                  <strong>
+                    What should I do if I suspect unauthorized activity on my
+                    account?
+                  </strong>
+                </p>
+                <p>
+                  If you suspect unauthorized activity, immediately update
+                  your password and contact our support team using the
+                  <a class="link" href="#support-contact-form">
+                    Support Contact Form
+                  </a>.
+                </p>
+              </div>
+            </div>
+          </div>
+          <script>
+              document.querySelectorAll(".accordion-title").forEach((title) => {
+                title.addEventListener("click", () => {
+                  const content = title.nextElementSibling;
+                  const arrow = title.querySelector(".arrow");
+
+                  if (content.classList.contains("show")) {
+                    content.classList.remove("show");
+                    title.classList.remove("active");
+                  } else {
+                    document
+                      .querySelectorAll(".accordion-content")
+                      .forEach((item) => item.classList.remove("show"));
+                    document
+                      .querySelectorAll(".accordion-title")
+                      .forEach((item) => item.classList.remove("active"));
+
+                    content.classList.add("show");
+                    title.classList.add("active");
+                  }
+                });
+              });
+            </script>
+        </div>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <h4>Support Team</h4>
+            <p class="contactemail">
+              Email:
+              <a class="link" href="mailto:support@platform.com">
+                support@platform.com
+              </a>
+            </p>
+            <p>Phone: +1-234-567-890</p>
+          </div>
+          <div class="contact-card">
+            <h4>Technical Assistance</h4>
+            <p class="contactemail">
+              Email:
+              <a class="link" href="mailto:techsupport@platform.com">
+                techsupport@platform.com
+              </a>
+            </p>
+            <p>Phone: +1-987-654-3210</p>
+          </div>
+        </div>
+
+        <!-- Help Form -->
+        <div class="help-form">
+          <h3>Contact Us</h3>
+          <form id="help-form">
+            <label for="name">Name:</label>
+            <input id="name"
+                   name="name"
+                   placeholder="Your Name"
+                   required
+                   type="text" />
+
+            <label for="email">Email:</label>
+            <input id="email"
+                   name="email"
+                   placeholder="Your Email"
+                   required
+                   type="email" />
+
+            <label for="message">Message:</label>
+            <textarea id="message"
+                      name="message"
+                      placeholder="Your Message"
+                      required>
+            </textarea>
+
+            <button class="submit-button" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="dsscript.js"></script>
+  <script src="script3.js"></script>
+</body>
+</html>
